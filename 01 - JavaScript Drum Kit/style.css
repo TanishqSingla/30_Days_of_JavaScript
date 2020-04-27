@@ -3,7 +3,17 @@
   display: inline-block;
   text-align: center;
   margin: 20px;
-  padding: 5px;
-  height: 20px;
-  width: 20px;
+  transition: all 0.07s;
+  height: 100px;
+  width: 100px;
+}
+
+.pressed {
+  transform: scale(1.1);
+  border-color: yellow;
+  box-shadow: 0 0 10px yellow;
+}
+
+kbd {
+  display: block;
 }
