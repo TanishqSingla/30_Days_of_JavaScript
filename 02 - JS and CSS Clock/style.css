@@ -36,4 +36,7 @@ body {
   position: absolute;
   top: 50%;
   transform-origin: 100%; /* Changing the axis of clock hands */
+  transform: rotate(90deg); /* setting clock to 12 O' clock by default*/
+  /* Adding ticking effect */
+  transition: all 0.05s cubic-bezier(0.1, 2.7, 0.58, 1);
 }
