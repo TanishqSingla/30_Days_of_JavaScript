@@ -2,8 +2,8 @@ window.addEventListener("keydown", (e) => {
   const audio = document.querySelector(`audio[data-key='${e.keyCode}']`);
   const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
 
-  if (!audio) return;
-  audio.currentTime = 0;
+  if (!audio) return; //doesn't accept keypress when any other key is pressed
+  audio.currentTime = 0; //rewinds the key to 0
   audio.play();
 
   key.classList.add("pressed");
