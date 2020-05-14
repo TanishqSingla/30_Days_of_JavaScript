@@ -1,4 +1,5 @@
 const secondHand = document.querySelector(".second-hand");
+const minHand = document.querySelector(".min-hand");
 
 function setDate() {
   const now = new Date();
@@ -6,6 +7,11 @@ function setDate() {
   const secondsDegrees = (seconds / 60) * 360 + 90; //why +90?, Well to compensate the offset
 
   secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
+
+  const min = now.getMinutes();
+  const minDegrees = (min / 60) * 360 + 90;
+
+  minHand.style.transform = `rotate(${minDegrees}deg)`;
 }
 
 setInterval(setDate, 1000);
