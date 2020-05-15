@@ -56,3 +56,86 @@ const people = [
   "Blair, Tony",
   "Blake, William",
 ];
+
+//Array.prototype.filter()
+//1. Filter the list of inventer for those who were born in the 1500's
+const fifteen = inventors.filter(
+  (inventor) => inventor.year >= 1500 && inventor.year < 1600
+);
+console.table(fifteen);
+
+//Array.prototype.map()
+//2. Give us an array of the inventory first and last names
+const fullNames = inventors.map(
+  (inventor) => `${inventor.first} ${inventor.last}`
+);
+
+console.log(fullNames);
+
+//Array.prototype.sort()
+//3. Sort the inventors by birthdate, oldest to youngest
+const order = inventors.sort((a, b) => (a.year > b.year ? 1 : -1));
+console.table(order);
+
+//Array.prototype.reduce()
+//4. How many years did all the inventors lived
+const totalYears = inventors.reduce((total, inventor) => {
+  return total + (inventor.passed - inventor.year);
+}, 0);
+console.log(totalYears);
+
+//5. Sort the inventors by years lived
+const oldest = inventors.sort((a, b) => {
+  const lastGuy = a.passed - a.year;
+  const nextGuy = b.passed - b.year;
+  return nextGuy - lastGuy;
+});
+console.table(oldest);
+
+//6. Create a list of Boulevards of Paris that contain 'de' anywhere in the name
+// https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
+
+/* Solution
+const links = [...document.querySelectorAll(".mw-category a")];
+const de = links
+  .map((link) => link.textContent)
+  .filter((streetName) => streetName.includes("de"));
+*/
+
+//7. Sort Exercise
+// Sort the people alphabetically by last name
+const alpha = people.sort((a, b) => {
+  const [aLast, aFirst] = a.split(", ");
+  const [bLast, bFirst] = b.split(", ");
+  return aLast - bLast;
+});
+console.log(alpha);
+
+//8. Reduce Exercise
+//Sum up the instances of each of these
+const data = [
+  "car",
+  "car",
+  "truck",
+  "truck",
+  "bike",
+  "walk",
+  "car",
+  "van",
+  "bike",
+  "walk",
+  "car",
+  "van",
+  "car",
+  "truck",
+];
+
+const tranpostation = data.reduce((obj, item) => {
+  if (!obj[item]) {
+    obj[item] = 0;
+  }
+  obj[item]++;
+  return obj;
+}, {});
+
+console.log(tranpostation);
