@@ -41,14 +41,27 @@
       console.assert(1 === 2, "You did not select the right element");
 
       // clearing
+      // console.clear();
 
       // Viewing DOM Elements
+      const p = document.querySelector("p");
+      console.log(p);
+      console.dir(p);
 
       // Grouping together
+      console.group("This is a group");
+      console.log("This is first child");
+      console.log("This is the last child");
+      console.groupEnd();
 
       // counting
+      console.count("this");
+      console.count("this");
+      console.count("this");
 
       // timing
+      console.time("fetching data");
+      console.timeEnd("fetching data");
     </script>
   </body>
 </html>
