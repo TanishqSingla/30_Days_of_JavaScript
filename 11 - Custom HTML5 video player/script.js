@@ -19,9 +19,15 @@ function updateButton() {
   toggle.textContent = icon;
 }
 
+function skip() {
+  video.currentTime += parseFloat(this.dataset.skip);
+}
+
 //Hooking function
 video.addEventListener("click", togglePlay);
 video.addEventListener("play", updateButton);
 video.addEventListener("pause", updateButton);
 
 toggle.addEventListener("click", togglePlay);
+
+skipButtons.forEach((btn) => btn.addEventListener("click", skip));
