@@ -27,7 +27,10 @@
       window.addEventListener("keyup", (e) => {
         console.log(e.key);
         keypress.push(e.key);
-        console.log(keypress);
+        keypress.splice(-code.length - 1, keypress.length - code.length);
+        if (JSON.stringify(code) === JSON.stringify(keypress)) {
+          console.log("ok");
+        }
       });
     </script>
   </body>
