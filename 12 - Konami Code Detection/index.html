@@ -11,10 +11,23 @@
   <body>
     <script>
       const keypress = [];
-      const code = [];
+      const code = [
+        "ArrowUp",
+        "ArrowUp",
+        "ArrowDown",
+        "ArrowDown",
+        "ArrowLeft",
+        "ArrowRight",
+        "ArrowLeft",
+        "ArrowRight",
+        "b",
+        "a",
+      ];
 
       window.addEventListener("keyup", (e) => {
         console.log(e.key);
+        keypress.push(e.key);
+        console.log(keypress);
       });
     </script>
   </body>
