@@ -17,11 +17,11 @@
       const players = ["Wes", "Sarah", "Ryan", "Poppy"];
 
       // and we want to make a copy of it.
-      const team = players;
+      // const team = players;
 
-      console.log(team, players);
+      // console.log(team, players);
       // You might think we can just do something like this:
-      team[3] = "Lux";
+      // team[3] = "Lux";
 
       // however what happens when we update that array?
 
@@ -34,6 +34,10 @@
       // So, how do we fix this? We take a copy instead!
 
       // one way
+      const team2 = players.splice;
+      const team3 = [].concat(players);
+      const team4 = [...players];
+      const team5 = Array.from(players);
 
       // or create a new array and concat the old one in
 
