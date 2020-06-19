@@ -44,7 +44,11 @@
         //this would show one two three in the console even though we just clicked on only one of them
       }
 
-      divs.forEach((div) => div.addEventListener("click", logText));
+      divs.forEach((div) => div.addEventListener("click", logText), {
+        capture: true,
+      });
+      //The capture true would enable bubbling in and disable bubble out. by default the capture is set true
+      //Now the output would be in the order of divs written (i.e one two three)
     </script>
   </body>
 </html>
