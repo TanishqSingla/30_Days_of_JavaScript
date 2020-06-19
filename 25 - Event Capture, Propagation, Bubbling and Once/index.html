@@ -40,6 +40,8 @@
       const divs = document.querySelectorAll("div");
 
       function logText(e) {
+        e.stopPropagation();
+        //This would stop the whole bubbling process and would only give the result of the clicked entity
         console.log(this.classList.value);
         //this would show one two three in the console even though we just clicked on only one of them
       }
