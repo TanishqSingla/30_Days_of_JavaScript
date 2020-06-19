@@ -5,7 +5,6 @@
     <title>Follow Along Nav</title>
   </head>
   <body>
-    <h2>Cool</h2>
     <nav class="top">
       <div class="dropdownBackground">
         <span class="arrow"></span>
@@ -16,11 +15,14 @@
           <a href="#">About Me</a>
           <div class="dropdown dropdown1">
             <div class="bio">
-              <img src="https://logo.clearbit.com/wesbos.com" />
+              <img
+                src="https://avatars0.githubusercontent.com/u/26207583?s=460&u=fef7cf46c683049624a6f90a2a635c5fcb0d8bc5&v=4"
+                height="150"
+                width="150"
+              />
               <p>
-                Wes Bos sure does love web development. He teaches things like
-                JavaScript, CSS and BBQ. Wait. BBQ isn't part of web
-                development. It should be though!
+                Tanishq sure does love web development. He like to give his
+                junior good advices.
               </p>
             </div>
           </div>
@@ -203,6 +205,17 @@
         opacity: 1;
       }
 
+      .trigger-enter .dropdown {
+        display: block;
+      }
+      .trigger-enter-active .dropdown {
+        opacity: 1;
+      }
+
+      .dropdownBackground.open {
+        opacity: 1;
+      }
+
       .arrow {
         position: absolute;
         width: 20px;
@@ -260,6 +273,50 @@
       }
     </style>
 
-    <script></script>
+    <script>
+      const triggers = document.querySelectorAll(".cool > li");
+      const background = document.querySelector(".dropdownBackground");
+      const nav = document.querySelector(".top");
+
+      function handleEnter() {
+        this.classList.add("trigger-enter");
+        setTimeout(() => {
+          if (this.classList.contains("trigger-enter")) {
+            this.classList.add("trigger-enter-active");
+          }
+        }, 150);
+        background.classList.add("open");
+
+        const dropdown = this.querySelector(".dropdown");
+        const navCoords = nav.getBoundingClientRect();
+        const dropdownCoords = dropdown.getBoundingClientRect();
+
+        const coords = {
+          height: dropdownCoords.height,
+          width: dropdownCoords.width,
+          top: dropdownCoords.top - navCoords.top,
+          left: dropdownCoords.left - navCoords.left,
+        };
+
+        background.style.setProperty("width", `${coords.width}px`);
+        background.style.setProperty("height", `${coords.height}px`);
+        background.style.setProperty(
+          "transform",
+          `translate(${coords.left}px, ${coords.top}px)`
+        );
+      }
+
+      function handleLeave() {
+        this.classList.remove("trigger-enter", "trigger-enter-active");
+        background.classList.remove("open");
+      }
+
+      triggers.forEach((trigger) =>
+        trigger.addEventListener("mouseenter", handleEnter)
+      );
+      triggers.forEach((trigger) =>
+        trigger.addEventListener("mouseleave", handleLeave)
+      );
+    </script>
   </body>
 </html>
